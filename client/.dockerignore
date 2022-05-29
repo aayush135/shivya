@@ -1,0 +1,9 @@
+node_modules
+.git
+.gitignore
+.eslintric.json
+README.md
+node_modules
+package-loc.json
+.next
+dockerfile
