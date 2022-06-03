@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  mongodb:
+    image: 'mongo'
+    ports:
+      - 27018:27017
+    volumes:
+      - data:/data/db
+    #environment:
+      # MONGO_INITDB_ROOT_USERNAME:ayush
+      # MONGO_INITDB_ROOT_PASSWORD:ayush
+    # env_file:
+    #   - ./env/mongo.env
+    # networks:
+    #   - mern-app
+  
+  
+  backend:
+    build: ./backend/api
+    ports:
+      - 5050:5050
+    volumes:
+      - ./backend/api:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    # env_file:
+    #   - ./env/api.env
+    # networks:
+    #   - mern-app
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    # networks:
+    #   - mern-app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+volumes:
+  data:
