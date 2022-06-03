@@ -1,8 +1,8 @@
-const { Console } = require("console");
-const mongoose = require("mongoose");
+import mongoose from 'mongoose'
+import routes from '../src/routes/index.mjs'
 
-module.exports = async (app) => {
-  require("../src/routes")(app);
+export default async (app) => {
+    routes(app);
 
   mongoose.connect(
       'mongodb://mongodb:27017/MERN-APP',
@@ -16,7 +16,7 @@ module.exports = async (app) => {
               console.error(err)
           }else{
               console.log('CONNECTED TO MONGODB')
-              app.listen(8080,()=>{console.log("server is running on port 8080")})
+              app.listen(5050,()=>{console.log("server is running on port 5050")})
           }
       }
   );
