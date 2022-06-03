@@ -1,8 +1,18 @@
 import Head from 'next/head'
+import {useEffect} from 'react'
 import Image from 'next/image'
+// import axios from 'axios'
 import styles from '../styles/Home.module.css'
 
+
 export default function Home() {
+  useEffect(async() => {
+    
+  const res= await fetch('/api')
+  console.log(res.data)
+    
+  }, [])
+  
   return (
     <div className={styles.container}>
       <Head>

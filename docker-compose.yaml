@@ -46,5 +46,20 @@ services:
     depends_on:
       - backend
 
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+    restart: always
+    volumes:
+      - ./backend/nginix/default.conf:/etc/nginx/conf.d/default.conf
+    build:
+      dockerfile: dockerfile
+      context: ./backend/nginix
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
 volumes:
   data:
