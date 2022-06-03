@@ -1,8 +1,10 @@
 import mongoose from 'mongoose'
 import routes from '../src/routes/index.mjs'
+import bodyParser  from 'body-parser';
 
 export default async (app) => {
     routes(app);
+    app.use(bodyParser)
 
   mongoose.connect(
       'mongodb://mongodb:27017/MERN-APP',
