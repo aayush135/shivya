@@ -1,7 +1,9 @@
 import account from './account/index.mjs'
 
-export default async(app)=>{
+export default (app)=>{
+    
+   
+    app.use('/',(req,res)=>{res.status(200).send({aaa:'api docs!!'})})
     app.use('/account',account)
-    app.use('/',(req,res)=>{res.status(200).send({aaa:'api docs'})})
-    app.use('/*',(req,res)=>{res.sendStatus(404)})
+    app.get('/*',(req,res)=>{res.sendStatus(404)})
 }

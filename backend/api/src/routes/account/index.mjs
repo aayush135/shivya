@@ -1,7 +1,8 @@
 import express from 'express'
+import { getsomethings } from './controller.account.mjs'
 
 const router=express.Router()
 
-router.get('/',(req,res)=>{res.send('account api')})
+router.get('/',getsomethings)
 
 export default router
