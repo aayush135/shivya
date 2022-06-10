@@ -6,12 +6,12 @@ import styles from '../styles/Home.module.css'
 
 
 export default function Home() {
-  useEffect(async() => {
+  // useEffect(async() => {
     
-  const res= await fetch('/api')
-  console.log(res.data)
+  // const res= await fetch('/api')
+  // console.log(res.data)
     
-  }, [])
+  // }, [])
   
   return (
     <div className={styles.container}>
@@ -23,7 +23,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!!!</a>
+          Welcome to <a href="https://nextjs.org">Next.js</a>
         </h1>
 
         <p className={styles.description}>
