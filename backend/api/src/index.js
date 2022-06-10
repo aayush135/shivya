@@ -1,5 +1,5 @@
 import express from 'express'
-import config from '../config/index.mjs'
+import config from '../config'
 
 const app=express()
 

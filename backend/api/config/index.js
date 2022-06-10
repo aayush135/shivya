@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import routes from "../src/routes/index.mjs";
+import routes from "../src/routes";
 import bodyParser from "body-parser";
 
 export default (app) => {
