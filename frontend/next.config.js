@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
+
 const nextConfig = {
   // reactStrictMode: true,
   webpackDevMiddleware: (config) => {
@@ -7,6 +9,9 @@ const nextConfig = {
       aggregateTimeout: 300,
     };
     return config;
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
   },
 };
 
