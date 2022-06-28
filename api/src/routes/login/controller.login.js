@@ -1,3 +1,4 @@
+import sendEmail from "../../utils/sendEmail";
 import { createToken } from "../../utils/tokenOperations";
 import User from "../user/model.user";
 import Session from "./model.session";
@@ -18,6 +19,8 @@ export const login = async (req, res) => {
       await loggedinSession.save();
 
       res.cookie("token", token, { maxAge: 900000, httpOnly: true });
+
+      sendEmail(user.email,'loggedin succesfully')
 
       res.status(200).send(user);
     } else {
