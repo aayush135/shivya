@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Protected from "../../components/Protected.jsx";
 
 const index = () => {
   return (
-    <div>index</div>
-  )
-}
+    <Protected>
+      <div>index</div>
+    </Protected>
+  );
+};
 
-export default index
+export default index;
