@@ -6,6 +6,9 @@ export default function Home() {
       <div>
         <i className="fa fa-plus"></i>
       </div>
+      <div className="header">
+        HI ayush
+      </div>
     </div>
   );
 }

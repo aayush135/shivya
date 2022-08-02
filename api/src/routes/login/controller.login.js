@@ -20,7 +20,7 @@ export const login = async (req, res) => {
 
       res.cookie("token", token, { maxAge: 900000, httpOnly: true });
 
-      sendEmail(user.email,'loggedin succesfully')
+      // sendEmail(user.email,'loggedin succesfully')
 
       res.status(200).send(user);
     } else {

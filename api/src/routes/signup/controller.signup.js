@@ -11,7 +11,7 @@ export const signup = async (req, res) => {
       user = new User({ ...req.body, isVerified: false });
       await user.save();
 
-      sendEmail(user.email,'registered succesfully')
+      // sendEmail(user.email,'registered succesfully')
 
       res.status(201).send(user);
     }
