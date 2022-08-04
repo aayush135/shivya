@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { loginAPI } from "../../apiCalls/authAPIs";
+import { setAuthLoggedinState } from "../../store/auth";
+import {router} from 'next/router'
+import { useDispatch } from "react-redux";
 
 const index = () => {
   const [creds, setCreds] = useState({
     email: "",
     password: "",
   });
+
+  const dispatch=useDispatch()
 
   const handleInputChange = (e) => {
     setCreds({
@@ -14,9 +19,16 @@ const index = () => {
     });
   };
 
-  const handleSubmitClick = async () => {
-    await loginAPI(creds);
+  const handleSubmitClick = async (e) => {
+    e.preventDefault()
+    const res=await loginAPI(creds);
+    debugger
+    if(res.status==200) {
+      dispatch(setAuthLoggedinState(true))
+      router.push('/dashboard')
+    }
   };
+
 
   return (
     <>

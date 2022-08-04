@@ -1,7 +1,7 @@
 import React from "react";
 import Protected from "../../components/Protected.jsx";
 
-const Dashboard = () => {
+const index = () => {
   return (
     <Protected>
       <div className="app">
@@ -18,4 +18,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default index;
